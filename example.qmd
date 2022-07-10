@@ -1,0 +1,20 @@
+---
+title: Example Lightbox Document
+filters:
+  - lightbox
+lightbox:
+  desc-position: bottom
+  match: auto
+---
+
+![What is up, my dog](images/mv.jpg){description="The quick brown fox jumped over the lazy dog."}
+
+::: {layout-ncol="2"}
+
+![Aquinnah](images/mv-2.jpg){group="1"}
+
+![Vineyard lighthouse](images/mv-3.jpg){group="1"}
+
+:::
+
+[![Hey Dawg](images/mv-1.jpg)](https://www.google.com)
