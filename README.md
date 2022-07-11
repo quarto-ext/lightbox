@@ -74,6 +74,9 @@ Do these work?
 - desc-position
 - match: auto
 
-
+Should I implement these?
+- skin (adds css class to lightbox for css targeting)
+- loop (loop galleries)
+- preload (boolean, disables or enables preloading)
 
 
