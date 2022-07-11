@@ -48,6 +48,32 @@ lightbox: auto
 ![A Lovely Image](mv-1.jpg)
 ```
 
+## Galleries
+
+
+## Image attributes
+
+Implemented
+- title
+- description
+- desc-position
+- effect
+
+Should implement?
+- zoomable
+- draggable
+
+Do these work?
+- width
+- height
+
+
+## Options
+
+- effect
+- desc-position
+- match: auto
+
 
 
 
