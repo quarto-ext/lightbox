@@ -109,4 +109,12 @@ The following options may be specified as attributes on individual images to con
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom` |
 
-## 
+## Example
+
+Here is the source code for a minimal example: [example.qmd](https://github.com/quarto-ext/lightbox/blob/main/example.qmd)
+
+This is the output of [example.qmd](https://quarto-ext.github.io/lightbox/).
+
+
+
+
