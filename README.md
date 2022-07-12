@@ -1,11 +1,12 @@
 # Lightbox
+
 An extension that uses the [GLightbox](https://biati-digital.github.io/glightbox/) javascript library to add lightbox styling and behavior to images on your web site or web page.
 
 ## Installation
 
 To install this extension in your current directory (or into the Quarto project that you're currently working in), use the following command:
 
-```bash
+``` bash
 quarto install extension quarto-ext/lightbox
 ```
 
@@ -17,7 +18,7 @@ The Lightbox extension is implemented as a filter in Quarto. Once installed, usi
 
 The GLightbox can automatically give images in your web page a lightbox treatment. You can enable this like:
 
-```markdown
+``` markdown
 ---
 title: Simple GLightbox Example
 filters:
@@ -30,15 +31,15 @@ lightbox: auto
 
 You can exlude an image from receiving this automatic treatment by giving it a `nolightbox` class, like so:
 
-```markdown
+``` markdown
 ![Don't lightbox me!](mv-1.jpg){.nolightbox}
 ```
 
 ### Choose Specific Images
 
-1) Add `lightbox` to the list of filters in your `_quarto.yml` file or your document front matter. For example:
+1)  Add `lightbox` to the list of filters in your `_quarto.yml` file or your document front matter. For example:
 
-```markdown
+``` markdown
 ---
 title: Simple Lightbox Example
 filters:
@@ -46,9 +47,9 @@ filters:
 ---
 ```
 
-2) Add the class `lightbox` to any images that you'd like to have the lightbox treatment. For example:
+2)  Add the class `lightbox` to any images that you'd like to have the lightbox treatment. For example:
 
-```markdown
+``` markdown
 ---
 title: Simple Lightbox Example
 filters:
@@ -64,7 +65,7 @@ In addition to simply providing a lightbox treatment for individual images, you 
 
 For example, the following three images will be treated as a gallery:
 
-```markdown
+``` markdown
 ![A Lovely Image](mv-1.jpg){group="my-gallery"}
 
 ![Another Lovely Image](mv-2.jpg){group="my-gallery"}
@@ -72,32 +73,39 @@ For example, the following three images will be treated as a gallery:
 ![The Last Lovely Image](mv-3.jpg){group="my-gallery"}
 ```
 
-## Image attributes
+## Global Options
 
-Implemented
-- title
-- description
-- desc-position
-- effect
+The following options may be specified in the front matter for lightbox:
 
-Should implement?
-- zoomable
-- draggable
+| Option          | Description                                                                                                                                                              |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `match`         | Set this to `auto` if you'd like any image to be given lightbox treatment. If you omit this, only images with the class `lightbox` will be given the lightbox treatment. |
+| `effect`        | The effect that should be used when opening and closing the lightbox. One of `fade`, `zoom`, `none`. Defaults to `zoom`.                                                 |
+| `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom`.                                     |
+| `loop`          | Whether galleries should 'loop' to first image in the gallery if the user continues past the last image of the gallery. Boolean that defaults to `true`.                 |
+| `css-class`     | A class name to apply to the lightbox to allow css targeting.                                                                                                            |
 
-Do these work?
-- width
-- height
+A complete example:
 
+``` markdown
+---
+title: Complete Lightbox Example
+filters:
+  - lightbox
+lightbox:
+  match: auto
+  effect: fade
+  desc-position: right
+  loop: false
+  css-class: "my-css-class"
+```
 
-## Options
+## Per Image Attributes
 
-- effect
-- desc-position
-- match: auto
+The following options may be specified as attributes on individual images to control the lightbox behavior:
 
-Should I implement these?
-- skin (adds css class to lightbox for css targeting)
-- loop (loop galleries)
-- preload (boolean, disables or enables preloading)
+| Option          | Description                                                                                                                         |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom` |
 
-
+## 
