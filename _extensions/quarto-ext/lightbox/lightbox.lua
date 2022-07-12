@@ -41,6 +41,8 @@ return {
           end
         elseif lbMeta.match ~= nil and pandoc.utils.stringify(lbMeta.match) == 'auto' then
           auto = true
+        elseif lbMeta == true then
+          auto = true      
         end
       end
     end, 
