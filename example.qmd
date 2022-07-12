@@ -25,13 +25,6 @@ The below demonstrates placing more than one image in a gallery. Note the usage 
 
 :::
 
-## Edgartown
-
-The below is an image that is already placed within a link. This will not be given the lightbox treatment since it already links to something.
-
-[![Sailboat in Edgartown Harbor](images/mv-4.jpg)](https://www.google.com)
-
-
 ## Credits
 
 The images in this example were used under the [Unsplash license](https://unsplash.com/license), view originals below:
