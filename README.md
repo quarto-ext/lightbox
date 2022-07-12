@@ -83,7 +83,7 @@ The following options may be specified in the front matter for lightbox:
 | `effect`        | The effect that should be used when opening and closing the lightbox. One of `fade`, `zoom`, `none`. Defaults to `zoom`.                                                 |
 | `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom`.                                     |
 | `loop`          | Whether galleries should 'loop' to first image in the gallery if the user continues past the last image of the gallery. Boolean that defaults to `true`.                 |
-| `css-class`     | A class name to apply to the lightbox to allow css targeting.                                                                                                            |
+| `css-class`     | A class name to apply to the lightbox to allow css targeting. This will replace the lightbox class with your custom class name.                                                                                                            |
 
 A complete example:
 
@@ -98,6 +98,7 @@ lightbox:
   desc-position: right
   loop: false
   css-class: "my-css-class"
+---
 ```
 
 ## Per Image Attributes
