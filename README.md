@@ -1,6 +1,6 @@
 # Lightbox
 
-An extension that uses the [GLightbox](https://biati-digital.github.io/glightbox/) javascript library to add lightbox styling and behavior to images on your web site or web page.
+An extension that uses the [GLightbox](https://biati-digital.github.io/glightbox/) javascript library to add lightbox styling and behavior to images in your HTML documents.
 
 ## Installation
 
