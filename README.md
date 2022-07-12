@@ -11,31 +11,11 @@ quarto install extension quarto-ext/lightbox
 
 ## Usage
 
-The Lightbox extension is implemented as a filter in Quarto. Once installed, you can use the extension by:
+The Lightbox extension is implemented as a filter in Quarto. Once installed, using the extension is easy.
 
-1) Adding `lightbox` to the list of filters in your `_quarto.yml` file or your document front matter. For example:
+### Apply To Images Automatically
 
-```markdown
----
-title: Simple Lightbox Example
-filters:
-   - lightbox
----
-```
-
-2) Adding the class `lightbox` to any images that you'd like to have the lightbox treatment. For example:
-
-```markdown
----
-title: Simple Lightbox Example
-filters:
-   - lightbox
----
-
-![A Lovely Image](mv-1.jpg){.lightbox}
-```
-
-3) Alternatively, the GLightbox can automatically give images in your web page a lightbox treatment. You can enable this like:
+The GLightbox can automatically give images in your web page a lightbox treatment. You can enable this like:
 
 ```markdown
 ---
@@ -48,8 +28,49 @@ lightbox: auto
 ![A Lovely Image](mv-1.jpg)
 ```
 
+You can exlude an image from receiving this automatic treatment by giving it a `nolightbox` class, like so:
+
+```markdown
+![Don't lightbox me!](mv-1.jpg){.nolightbox}
+```
+
+### Choose Specific Images
+
+1) Add `lightbox` to the list of filters in your `_quarto.yml` file or your document front matter. For example:
+
+```markdown
+---
+title: Simple Lightbox Example
+filters:
+   - lightbox
+---
+```
+
+2) Add the class `lightbox` to any images that you'd like to have the lightbox treatment. For example:
+
+```markdown
+---
+title: Simple Lightbox Example
+filters:
+   - lightbox
+---
+
+![A Lovely Image](mv-1.jpg){.lightbox}
+```
+
 ## Galleries
 
+In addition to simply providing a lightbox treatment for individual images, you can also group images into a 'gallery'. When the user activates the lightbox, they will be able to page through the images in the gallery without returning to the main document. To create galleries of images, apply a `group` attribute (with a name) to the images that you'd like to gather into a gallery. Images with the same group name will be placed together in a gallery when given a lightbox treatment.
+
+For example, the following three images will be treated as a gallery:
+
+```markdown
+![A Lovely Image](mv-1.jpg){group="my-gallery"}
+
+![Another Lovely Image](mv-2.jpg){group="my-gallery"}
+
+![The Last Lovely Image](mv-3.jpg){group="my-gallery"}
+```
 
 ## Image attributes
 
