@@ -22,7 +22,7 @@ The GLightbox can automatically give images in your web page a lightbox treatmen
 ---
 title: Simple GLightbox Example
 filters:
-   - glightbox
+   - lightbox
 lightbox: auto
 ---
 
