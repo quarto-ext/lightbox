@@ -16,11 +16,11 @@ The Lightbox extension is implemented as a filter in Quarto. Once installed, usi
 
 ### Apply To Images Automatically
 
-The GLightbox can automatically give images in your web page a lightbox treatment. You can enable this like:
+The Lightbox extension can automatically give images in your web page a lightbox treatment. You can enable this like:
 
 ``` markdown
 ---
-title: Simple GLightbox Example
+title: Simple Lightbox Example
 filters:
    - lightbox
 lightbox: auto
