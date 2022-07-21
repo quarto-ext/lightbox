@@ -29,7 +29,7 @@ lightbox: auto
 ![A Lovely Image](mv-1.jpg)
 ```
 
-You can exlude an image from receiving this automatic treatment by giving it a `nolightbox` class, like so:
+You can exclude an image from receiving this automatic treatment by giving it a `nolightbox` class, like so:
 
 ``` markdown
 ![Don't lightbox me!](mv-1.jpg){.nolightbox}
