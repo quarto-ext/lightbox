@@ -101,6 +101,12 @@ return {
             -- clear the attribute
             imgEl.attr.attributes[v] = nil
           end
+
+          -- clear the title
+          if (imgEl.title == 'fig:') then
+            imgEl.title = ""
+          end
+
         end
 
         -- wrap decorated images in a link with appropriate attrs
