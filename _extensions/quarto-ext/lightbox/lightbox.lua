@@ -10,7 +10,7 @@ local imgCount = 0
 -- attributes to forward from the image to the newly created link
 local kForwardedAttr = {
   "title", "description", "desc-position", 
-  "type", "effect", "width", "height", "zoomable", "draggable"
+  "type", "effect", "zoomable", "draggable"
 }
 
 local kLightboxClass = "lightbox"
