@@ -3,6 +3,7 @@ title: Example Lightbox Document
 filters:
   - lightbox
 lightbox: auto
+keep-md: true
 ---
 
 ## Chilmark
@@ -32,6 +33,34 @@ description="Oak Bluffs is famous for its Gingerbread cottages, busy town center
 ![Vineyard lighthouse](images/mv-2.jpg){group="elsewhere"
 description="The Edgartown Lighthouse is a short walk from downtown and has beautiful views over the entrance to Edgartown Harbor."}
 :::
+
+## Code chunks
+
+Options for lightbox can be passed using chunk options (Limitation to one image per chunk for now.)
+
+```{r}
+#| fig-cap: R plot
+#| lightbox:
+#|   group: r-graph
+#|   description: This is 1 to 10 plot
+plot(1:10, rnorm(10))
+```
+
+```{r}
+#| fig-cap: cars
+#| lightbox:
+#|   group: r-graph
+#|   description: We see our cars data above
+plot(cars)
+```
+
+Don't apply lightbox on this last plot, when `lightbox: auto` in main YAML config
+
+```{r}
+#| fig-cap: mtcars
+#| lightbox: false
+plot(mtcars)
+```
 
 ## Credits
 
