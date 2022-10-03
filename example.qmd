@@ -34,12 +34,12 @@ description="Oak Bluffs is famous for its Gingerbread cottages, busy town center
 description="The Edgartown Lighthouse is a short walk from downtown and has beautiful views over the entrance to Edgartown Harbor."}
 :::
 
-## Code chunks
+## With computation code chunks
 
-Options for lightbox can be passed using chunk options (Limitation to one image per chunk for now.)
+Options for lightbox can be passed using chunk options.
 
 ```{r}
-#| fig-cap: R plot
+#| fig-cap: Simple demo R plot 
 #| lightbox:
 #|   group: r-graph
 #|   description: This is 1 to 10 plot
@@ -47,14 +47,28 @@ plot(1:10, rnorm(10))
 ```
 
 ```{r}
-#| fig-cap: cars
+#| fig-cap: Plot about cars data
 #| lightbox:
 #|   group: r-graph
 #|   description: We see our cars data above
 plot(cars)
 ```
 
-Don't apply lightbox on this last plot, when `lightbox: auto` in main YAML config
+It is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.
+```{r}
+#| fig-cap: 
+#|   - Caption for first plot
+#|   - Caption for second plot
+#| lightbox: 
+#|   group: cars
+#|   description: 
+#|     - This is the decription for first graph
+#|     - This is the decription for second graph
+plot(mtcars)
+plot(cars)
+```
+
+When `lightbox: auto` in main YAML config, you can opt-out lightbox on a plot by setting `lightbox: false`
 
 ```{r}
 #| fig-cap: mtcars

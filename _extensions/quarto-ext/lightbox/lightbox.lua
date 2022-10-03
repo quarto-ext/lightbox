@@ -64,10 +64,6 @@ return {
         div = div:walk({
           Image = function(imgEl)
             imgCount = imgCount + 1
-            if (imgCount > 1 ) then
-              quarto.log.warning("Only one image per chunk is supported with lightbox configuration in chunk.")
-              return nil
-            end
             if meta == false or meta[kNoLightboxClass] == true then
               imgEl.classes:insert(kNoLightboxClass)
             else
@@ -77,8 +73,19 @@ return {
               if meta.group then
                 imgEl.attr.attributes.group = meta.group or imgEl.attr.attributes.group
               end
-              for _, v in ipairs(kForwardedAttr) do
-                imgEl.attr.attributes[v] = meta[v] or imgEl.attr.attributes[v]
+              for _, v in next, kForwardedAttr do
+                if type(meta[v]) == "table" and #meta[v] > 1 then 
+                  -- if list attributes it should be one per plot
+                  if imgCount > #meta[v] then
+                    quarto.log.warning("More plots than '" .. v .. "' passed in YAML chunk options.")
+                  else
+                    attrLb = meta[v][imgCount]
+                  end
+                else 
+                  -- Otherwise reuse the single attributes
+                  attrLb = meta[v]
+                end
+                imgEl.attr.attributes[v] = attrLb or imgEl.attr.attributes[v]
               end
             end
             return imgEl
