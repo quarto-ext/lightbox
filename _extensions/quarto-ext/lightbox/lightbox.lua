@@ -57,11 +57,11 @@ return {
       })
     end,
     Div = function(div)
-      if div.classes:includes("cell") and div.attributes["lightbox"] then
+      if div.classes:includes("cell") and div.attributes["lightbox"] ~= nil then
         meta = quarto.json.decode(div.attributes["lightbox"])
         div = div:walk({
           Image = function(imgEl)
-            if meta[kNoLightboxClass] == true or meta[kLightboxClass] == false then
+            if meta == false or meta[kNoLightboxClass] == true or meta[kLightboxClass] == false then
               imgEl.classes:insert(kNoLightboxClass)
             else
               if meta[kLightboxClass] == true then 
