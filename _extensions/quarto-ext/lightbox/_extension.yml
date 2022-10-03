@@ -1,6 +1,6 @@
 title: Lightbox
 author: RStudio, PBC
-version: 0.1.3
+version: 0.1.4
 contributes:
   filters:
     - lightbox.lua
