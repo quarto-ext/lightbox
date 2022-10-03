@@ -67,6 +67,9 @@ return {
               if meta[kLightboxClass] == true then 
                 imgEl.classes:insert(kLightboxClass)
               end
+              if meta.group then
+                imgEl.attr.attributes.group = meta.group or imgEl.attr.attributes.group
+              end
               for _, v in ipairs(kForwardedAttr) do
                 imgEl.attr.attributes[v] = meta[v] or imgEl.attr.attributes[v]
               end
