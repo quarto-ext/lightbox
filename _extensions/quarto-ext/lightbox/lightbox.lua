@@ -55,6 +55,21 @@ return {
           imagesWithinLinks[#imagesWithinLinks + 1] = imageEl
         end
       })
+    end,
+    Div = function(div)
+      if div.classes:includes("cell") and div.attributes["lightbox"] then
+        meta = quarto.json.decode(div.attributes["lightbox"])
+        div = div:walk({
+          Image = function(imgEl)
+            for _, v in ipairs(kForwardedAttr) do
+              imgEl.attr.attributes[v] = meta[v] or imgEl.attr.attributes[v]
+            end
+            return imgEl
+          end
+        })
+        div.attributes["lightbox"] = nil
+      end
+      return div
     end
   },
   {
