@@ -56,6 +56,45 @@ return {
         end
       })
     end
+  },{
+    Div = function(div)
+      if div.classes:includes("cell") and div.attributes["lightbox"] ~= nil then
+        meta = quarto.json.decode(div.attributes["lightbox"])
+        local imgCount=0
+        div = div:walk({
+          Image = function(imgEl)
+            imgCount = imgCount + 1
+            if meta == false or meta[kNoLightboxClass] == true then
+              imgEl.classes:insert(kNoLightboxClass)
+            else
+              if not auto and meta and not meta[kNoLightboxClass] then
+                imgEl.classes:insert(kLightboxClass)
+              end
+              if meta.group then
+                imgEl.attr.attributes.group = meta.group or imgEl.attr.attributes.group
+              end
+              for _, v in next, kForwardedAttr do
+                if type(meta[v]) == "table" and #meta[v] > 1 then 
+                  -- if list attributes it should be one per plot
+                  if imgCount > #meta[v] then
+                    quarto.log.warning("More plots than '" .. v .. "' passed in YAML chunk options.")
+                  else
+                    attrLb = meta[v][imgCount]
+                  end
+                else 
+                  -- Otherwise reuse the single attributes
+                  attrLb = meta[v]
+                end
+                imgEl.attr.attributes[v] = attrLb or imgEl.attr.attributes[v]
+              end
+            end
+            return imgEl
+          end
+        })
+        div.attributes["lightbox"] = nil
+      end
+      return div
+    end
   },
   {
   Image = function(imgEl)
