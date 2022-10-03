@@ -61,8 +61,12 @@ return {
         meta = quarto.json.decode(div.attributes["lightbox"])
         div = div:walk({
           Image = function(imgEl)
-            for _, v in ipairs(kForwardedAttr) do
-              imgEl.attr.attributes[v] = meta[v] or imgEl.attr.attributes[v]
+            if meta[kNoLightboxClass] then
+              imgEl.classes:insert(kNoLightboxClass)
+            else
+              for _, v in ipairs(kForwardedAttr) do
+                imgEl.attr.attributes[v] = meta[v] or imgEl.attr.attributes[v]
+              end
             end
             return imgEl
           end
