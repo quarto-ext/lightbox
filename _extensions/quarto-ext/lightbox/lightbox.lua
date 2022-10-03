@@ -60,8 +60,14 @@ return {
     Div = function(div)
       if div.classes:includes("cell") and div.attributes["lightbox"] ~= nil then
         meta = quarto.json.decode(div.attributes["lightbox"])
+        local imgCount=0
         div = div:walk({
           Image = function(imgEl)
+            imgCount = imgCount + 1
+            if (imgCount > 1 ) then
+              quarto.log.warning("Only one image per chunk is supported with lightbox configuration in chunk.")
+              return nil
+            end
             if meta == false or meta[kNoLightboxClass] == true then
               imgEl.classes:insert(kNoLightboxClass)
             else
