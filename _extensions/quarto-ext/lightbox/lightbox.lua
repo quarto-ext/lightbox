@@ -98,7 +98,7 @@ return {
   },
   {
   Image = function(imgEl)
-    if quarto.doc.isFormat("html:js") then
+    if quarto.doc.is_format("html:js") then
       local isAlreadyLinked = imagesWithinLinks:includes(imgEl)
       if (not isAlreadyLinked and auto and not imgEl.classes:includes(kNoLightboxClass)) 
           or imgEl.classes:includes('lightbox') then
@@ -161,7 +161,7 @@ return {
     -- we need to include the dependencies
     if needsLightbox then
       -- add the dependency
-      quarto.doc.addHtmlDependency({
+      quarto.doc.add_html_dependency({
         name = 'glightbox',
         scripts = {'resources/js/glightbox.min.js'},
         stylesheets = {'resources/css/glightbox.min.css', 'lightbox.css'}
@@ -230,7 +230,7 @@ return {
       local scriptTag = "<script>var lightboxQuarto = GLightbox(" .. optionsJson .. ");</script>"
 
       -- inject the rendering code
-      quarto.doc.includeText("after-body", scriptTag)
+      quarto.doc.include_text("after-body", scriptTag)
 
     end
   end

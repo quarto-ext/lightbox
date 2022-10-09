@@ -3,7 +3,6 @@ title: Example Lightbox Document
 filters:
   - lightbox
 lightbox: auto
-keep-md: true
 ---
 
 ## Chilmark
