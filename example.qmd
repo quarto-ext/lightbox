@@ -11,7 +11,7 @@ Here is a simple image with a description. This also overrides the
 description position and places it to the left of the image.
 
 ![Beach in
-Chilmark](images/mv-0.jpg){description="Chilmark has a reputation as having some of the best beaches on Martha's Vineyard. Chilmark beaches are resident only in the summer, so be sure to have your proof of residency ready if you'd like to visit one of these special places."
+Chilmark](images/mv-0.jpg){description="Chilmark has a reputation as having some of the best beaches on Martha's Vineyard. Chilmark beaches are resident only in the summer, so be sure to have your proof of residency ready if you'd like to visit one of these special places. _credit:_ [Chilmark Beach](https://unsplash.com/photos/VBDJGOMCwps)"
 desc-position="left"}
 
 ## Elsewhere

@@ -8,8 +8,9 @@ local needsLightbox = false
 local imgCount = 0
 
 -- attributes to forward from the image to the newly created link
+local kDescription = "description"
 local kForwardedAttr = {
-  "title", "description", "desc-position", 
+  "title", kDescription, "desc-position", 
   "type", "effect", "zoomable", "draggable"
 }
 
@@ -19,6 +20,17 @@ local kGalleryPrefix = "quarto-lightbox-gallery-"
 
 -- A list of images already within links that we can use to filter
 local imagesWithinLinks = pandoc.List({})
+
+local function readAttrValue(el, attrName) 
+  if attrName == kDescription then
+    local doc = pandoc.read(el.attr.attributes[attrName])
+    local attrInlines = doc.blocks[1].content
+    return pandoc.write(pandoc.Pandoc(attrInlines), "html")
+  else 
+    return el[attrName]
+  end
+
+end
 
 return {
   {
@@ -137,8 +149,8 @@ return {
         for i, v in ipairs(kForwardedAttr) do
           if imgEl.attr.attributes[v] ~= nil then
             -- forward the attribute
-            linkAttributes[v] = imgEl.attr.attributes[v]
-
+            linkAttributes[v] = readAttrValue(imgEl, v)
+          
             -- clear the attribute
             imgEl.attr.attributes[v] = nil
           end
