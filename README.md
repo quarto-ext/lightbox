@@ -109,6 +109,41 @@ The following options may be specified as attributes on individual images to con
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `desc-position` | The position of the title and description when displaying a lightbox. One of `top`, `bottom`, `left`, `right`. Defaults to `bottom` |
 
+
+## Using lightbox with computation cells
+
+Options for lightbox can be passed using chunk option `lightbox` like the following:
+
+````markdown
+```{r}
+#| fig-cap: Simple demo R plot 
+#| lightbox:
+#|   group: r-graph
+#|   description: This is 1 to 10 plot
+plot(1:10, rnorm(10))
+```
+````
+
+It is possible to create several plots, and group them in a lightbox gallery. Use list in YAML for options when you have several plots, on per plot.
+
+````markdown
+```{r}
+#| fig-cap: 
+#|   - Caption for first plot
+#|   - Caption for second plot
+#| lightbox: 
+#|   group: cars
+#|   description: 
+#|     - This is the decription for first graph
+#|     - This is the decription for second graph
+plot(mtcars)
+plot(cars)
+```
+````
+
+When `lightbox: auto` is in main YAML config, you can opt-out lightbox on a plot by setting `lightbox: false`
+When `lightbox: auto` is not set, you can opt-in for lightbox on a specific plot by setting `lightbox: true` or by setting `lightbox` with some options.
+
 ## Example
 
 Here is the source code for a minimal example: [example.qmd](https://github.com/quarto-ext/lightbox/blob/main/example.qmd)
