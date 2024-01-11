@@ -1,5 +1,7 @@
 # Lightbox
 
+> **IMPORTANT NOTE:** The `lightbox` extension is now a built-in feature of Quarto v1.4 (https://quarto.org/docs/prerelease/1.4/lightbox.html) so if you are using this version or later there is no need to install this extension.
+
 An extension that uses the [GLightbox](https://biati-digital.github.io/glightbox/) javascript library to add lightbox styling and behavior to images in your HTML documents.
 
 ## Installation
